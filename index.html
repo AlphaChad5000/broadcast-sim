@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Broadcast Sim</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">{ "imports": { "three": "./vendor/three.module.js" } }</script>
+</head>
+<body>
+  <canvas id="stage"></canvas>
+
+  <header id="top">
+    <div class="brand"><span class="dot"></span>BROADCAST&nbsp;SIM</div>
+    <div id="status" class="pill">—</div>
+    <div id="title" class="title"></div>
+    <div class="spacer"></div>
+    <div class="group transport">
+      <button id="prev" title="Previous play (←)">&#x23EE;</button>
+      <button id="play" title="Pause / play (space)">&#x23F8;</button>
+      <button id="next" title="Next play (→)">&#x23ED;</button>
+    </div>
+    <div class="group">
+      <select id="pace" title="Pace">
+        <option value="condensed">Condensed</option>
+        <option value="realtime">Real time</option>
+        <option value="live">Live</option>
+      </select>
+      <select id="speed" title="Speed">
+        <option value="1">1×</option><option value="2">2×</option><option value="4">4×</option><option value="8">8×</option><option value="16">16×</option>
+      </select>
+    </div>
+    <div class="group cams">
+      <button data-cam="broadcast" class="on" title="TV angle (1)">TV</button>
+      <button data-cam="all22" title="All-22 (2)">All-22</button>
+      <button data-cam="sky" title="Sky cam (3)">Sky</button>
+      <button data-cam="free" title="Free camera (4)">Free</button>
+    </div>
+    <div class="group">
+      <button id="voice" class="on" title="Announcer voice (V)">Voice</button>
+      <button id="mute" title="Stadium sound (M)">Sound</button>
+      <button id="feedBtn" class="on" title="Play-by-play feed (F)">Feed</button>
+      <button id="gamesBtn" title="Pick a game">Games</button>
+    </div>
+  </header>
+
+  <aside id="feed">
+    <div class="feed-head">Play-by-play <span id="feedCount"></span></div>
+    <ol id="feedList"></ol>
+  </aside>
+
+  <div id="banner"><div class="b1"></div><div class="b2"></div></div>
+
+  <div id="lower">
+    <div id="callTag">RADIO</div>
+    <div id="callText"></div>
+  </div>
+
+  <div id="bug">
+    <div class="team away"><span class="abbr"></span><span class="score"></span><span class="poss"></span></div>
+    <div class="team home"><span class="abbr"></span><span class="score"></span><span class="poss"></span></div>
+    <div class="clock"><span class="qtr"></span><span class="time"></span></div>
+    <div class="down"></div>
+  </div>
+
+  <div id="picker" class="modal">
+    <div class="sheet">
+      <h1>Pick a game</h1>
+      <p class="sub">Every play is rebuilt from its play-by-play description. Live games follow the feed as it updates; finished games replay.</p>
+      <div class="weeknav"><button id="wkPrev">&#x25C0;</button><span id="wkLabel">This week</span><button id="wkNext">&#x25B6;</button></div>
+      <div id="games" class="games"></div>
+      <h2>Saved</h2>
+      <div id="saved" class="games"></div>
+      <div class="manual"><input id="gameId" placeholder="ESPN game id, e.g. 401873022"><button id="goId">Load</button></div>
+    </div>
+  </div>
+
+  <div id="tunein" class="modal">
+    <div class="sheet small">
+      <div class="kicker">Now loading</div>
+      <h1 id="tuneTitle">—</h1>
+      <p id="tuneSub" class="sub"></p>
+      <button id="tuneBtn" class="big">Tune in</button>
+      <button id="tunePick" class="link">pick another game</button>
+    </div>
+  </div>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+# games pulled from ESPN (node tools/fetch.mjs); cached locally, not ours to publish
+data/games/
+node_modules/
+*.tmp.mjs

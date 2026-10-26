@@ -1,0 +1,12 @@
+{
+  "name": "broadcast-sim",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Simulates football games in real time from their play-by-play descriptions.",
+  "scripts": {
+    "start": "node server.mjs",
+    "fetch": "node tools/fetch.mjs",
+    "test": "node test/run.mjs"
+  }
+}
